@@ -123,6 +123,41 @@ const data = {
     ]
 }
 
+const langs = {
+    order: {
+        tr: "SIRA",
+        uk: "ПОРЯДОК",
+        en: "ORDER",
+    },
+    image: {
+        tr: "RESİM",
+        uk: "ЗОБРАЖЕННЯ",
+        en: "IMAGE",
+    },
+    productFeatures: {
+        tr: "ÜRÜN ÖZELLİKLERİ",
+        uk: "ХАРАКТЕРИСТИКИ ТОВАРУ",
+        en: "PRODUCT FEATURES",
+    },
+    price: {
+        tr: "FİYAT",
+        uk: "ЦІНА",
+        en: "PRICE",
+    },
+    quantity: {
+        tr: "ADET",
+        uk: "КІЛЬКІСТЬ",
+        en: "QUANTITY",
+    },
+    total: {
+        tr: "TOPLAM",
+        uk: "ЗАГАЛЬНИЙ",
+        en: "TOTAL",
+    },
+};
+
+const selectedLang = "uk"
+
 const Invoice = () => {
     const printRef = useRef(null)
 
@@ -260,46 +295,47 @@ const Invoice = () => {
         </button>
 
         <div ref={printRef} className="a4">
+
+                <Image src={Logo} alt="" height={75} className="w-fit px-6 bg-white mr-auto"/>
+
             {/* Header */}
-            <header className="flex items-start justify-between">
+            <header className="flex items-start justify-end mb-6">
                 <div className="flex flex-col gap-1">
                     <span className="text-[#363B46] text-[19.125pt] font-bold">Yusuf</span>
                     <span className="text-[13.5pt] text-[#647680] font-bold">552 448 3327</span>
                     <span className="text-[13.5pt] text-[#647680] font-bold">yyilidz518@gmail.com</span>
                     <span className="text-[13.5pt] text-[#647680] font-bold">Siteler mah. 1346 sokak</span>
                 </div>
-
-                <div className="flex flex-col items-end gap-2">
-                            <span
-                                className="text-[13.5pt] text-[#363B46] font-bold">Teklif no: {details.order_no}</span>
-                    <div className="w-full flex flex-col h-fit gap-1">
-                        <div className="flex items-center justify-between">
-                            <span className="text-[13.5pt] text-[#363B46] font-bold">Invoice#</span>
-                            <span className="text-[13.5pt] text-[#647680] font-bold">45489</span>
-                        </div>
-
-                        <div className="flex items-center justify-between">
-                            <span className="text-[13.5pt] text-[#363B46] font-bold">Date</span>
-                            <span
-                                className="text-[13.5pt] text-[#647680] font-bold">12 / 04 / 2023</span>
-                        </div>
-                    </div>
-                </div>
             </header>
 
-            <div className="h-[50px] w-full bg-[#FFC90B] my-5 flex items-center px-[80px]">
-                <Image src={Logo} alt="" className="h-full w-fit px-6 bg-white ml-auto"/>
+            <div className="h-[50px] w-full bg-[#FFC90B] my-5 flex items-center justify-around">
+
+                <div className="flex items-center justify-between gap-2">
+                    <span className="text-[10pt] text-[#363B46] font-bold">Teklif no:</span>
+                    <span className="text-[10pt] text-[#000] font-bold">{details.order_no}</span>
+                </div>
+
+                <div className="flex items-center justify-between gap-2">
+                    <span className="text-[10pt] text-[#363B46] font-bold">Invoice#</span>
+                    <span className="text-[10pt] text-[#000] font-bold">45489</span>
+                </div>
+
+                <div className="flex items-center justify-between gap-2">
+                    <span className="text-[10pt] text-[#363B46] font-bold">Date:</span>
+                    <span
+                        className="text-[10pt] text-[#000] font-bold">12 / 04 / 2023</span>
+                </div>
             </div>
 
             <table className="w-full">
                 <thead className="bg-[#363B46] [&_tr_th]:text-center [&_tr_th]: [&_tr_th]:text-white">
                 <tr>
-                    <th className="w-[50px]">SIRA</th>
-                    <th className="w-[125px]">RESİM</th>
-                    <th className="max-h-[105px]">ÜRÜN ÖZELLİKLERİ</th>
-                    <th className="w-[100px]">FİYAT</th>
-                    <th className="w-[50px]">ADET</th>
-                    <th className="w-[100px]">TOPLAM</th>
+                    <th className="w-fit !font-serif">{langs.order[selectedLang]}</th>
+                    <th className="w-min !font-serif">{langs.image[selectedLang]}</th>
+                    <th className="max-h-[105px] !font-serif">{langs.productFeatures[selectedLang]}</th>
+                    <th className="w-fit !font-serif">{langs.price[selectedLang]}</th>
+                    <th className="w-fit !font-serif">{langs.quantity[selectedLang]}</th>
+                    <th className="w-fit !font-serif">{langs.total[selectedLang]}</th>
                 </tr>
                 </thead>
                 <tbody className="[&_tr_td]:p-[6px] [&_tr_td]:text-center [&_tr_th]:text-[#363B46]">
@@ -307,7 +343,7 @@ const Invoice = () => {
                     <tr key={idx} className="even:bg-[#F2F2F2] bg-white">
                         <td className="border-l-2 border-r-2 border-b-2 border-dashed border-[#363B46] text-[13.5pt] text-[#363B46] font-bold">{idx + 1}</td>
                         <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">
-                            <Image src={product?.image} height={75} alt="" className="object-contain m-auto"/>
+                            {product?.image ? <Image src={product?.image} height={75} alt="" className="object-contain m-auto"/> : <div>Not Found</div>}
                         </td>
                         <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">
                             <div className="flex flex-wrap gap-2">
