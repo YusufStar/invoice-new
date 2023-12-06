@@ -6,3 +6,12 @@
     width: 29.7cm;
     height: 21cm;
 }
+
+@media print {
+    page: auto;
+}
+
+.page_number:before {
+    counter-increment: page;
+    content: counter(page);
+}

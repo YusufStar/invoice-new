@@ -19,7 +19,67 @@ const data = {
             "productId": "65437ceee29190a1e9d61e75",
             "createdAt": "2023-12-04T18:18:13.575Z",
             "updatedAt": "2023-12-04T18:18:13.575Z"
+        },
+        {
+            "id": "656e17e5da80e5d9003bccd0",
+            "customerId": "656e17e5da80e5d9003bcccf",
+            "personelId": "656e17e5da80e5d9003bccce",
+            "orderCode": "211813RAHMMS412HG",
+            "invalidDate": "2023-12-14T18:18:13.373Z",
+            "stock": 5,
+            "orderNote": "5 tane aslan koltuk eklendi",
+            "productId": "65437ceee29190a1e9d61e75",
+            "createdAt": "2023-12-04T18:18:13.575Z",
+            "updatedAt": "2023-12-04T18:18:13.575Z"
+        },
+        {
+            "id": "656e17e5da80e5d9003bccd0",
+            "customerId": "656e17e5da80e5d9003bcccf",
+            "personelId": "656e17e5da80e5d9003bccce",
+            "orderCode": "211813RAHMMS412HG",
+            "invalidDate": "2023-12-14T18:18:13.373Z",
+            "stock": 5,
+            "orderNote": "5 tane aslan koltuk eklendi",
+            "productId": "65437ceee29190a1e9d61e75",
+            "createdAt": "2023-12-04T18:18:13.575Z",
+            "updatedAt": "2023-12-04T18:18:13.575Z"
+        }, {
+            "id": "656e17e5da80e5d9003bccd0",
+            "customerId": "656e17e5da80e5d9003bcccf",
+            "personelId": "656e17e5da80e5d9003bccce",
+            "orderCode": "211813RAHMMS412HG",
+            "invalidDate": "2023-12-14T18:18:13.373Z",
+            "stock": 5,
+            "orderNote": "5 tane aslan koltuk eklendi",
+            "productId": "65437ceee29190a1e9d61e75",
+            "createdAt": "2023-12-04T18:18:13.575Z",
+            "updatedAt": "2023-12-04T18:18:13.575Z"
+        }, {
+            "id": "656e17e5da80e5d9003bccd0",
+            "customerId": "656e17e5da80e5d9003bcccf",
+            "personelId": "656e17e5da80e5d9003bccce",
+            "orderCode": "211813RAHMMS412HG",
+            "invalidDate": "2023-12-14T18:18:13.373Z",
+            "stock": 5,
+            "orderNote": "5 tane aslan koltuk eklendi",
+            "productId": "65437ceee29190a1e9d61e75",
+            "createdAt": "2023-12-04T18:18:13.575Z",
+            "updatedAt": "2023-12-04T18:18:13.575Z"
+        },
+        {
+            "id": "656e17e5da80e5d9003bccd0",
+            "customerId": "656e17e5da80e5d9003bcccf",
+            "personelId": "656e17e5da80e5d9003bccce",
+            "orderCode": "211813RAHMMS412HG",
+            "invalidDate": "2023-12-14T18:18:13.373Z",
+            "stock": 5,
+            "orderNote": "5 tane aslan koltuk eklendi",
+            "productId": "65437ceee29190a1e9d61e75",
+            "createdAt": "2023-12-04T18:18:13.575Z",
+            "updatedAt": "2023-12-04T18:18:13.575Z"
         }
+
+
     ],
     "Renkler": [
         {
@@ -146,13 +206,53 @@ const langs = {
     },
     quantity: {
         tr: "ADET",
-        uk: "КІЛЬКІСТЬ",
+        uk: "КІЛЬ",
         en: "QUANTITY",
     },
     total: {
         tr: "TOPLAM",
-        uk: "ЗАГАЛЬНИЙ",
+        uk: "СУМА",
         en: "TOTAL",
+    },
+    notFound: {
+        tr: "Bulunamadı",
+        uk: "Не знайдено",
+        en: "Not Found",
+    },
+    teklifNo: {
+        tr: "Teklif no",
+        uk: "Тендер №",
+        en: "Quotation No",
+    },
+    invoice: {
+        tr: "Fatura",
+        uk: "Рахунок",
+        en: "Invoice",
+    },
+    date: {
+        tr: "Tarih",
+        uk: "Дата",
+        en: "Date",
+    },
+    firmaBilgileri: {
+        tr: "Firma Bilgileri",
+        uk: "Інформація про компанію",
+        en: "Company Information",
+    },
+    toplam: {
+        tr: "Toplam",
+        uk: "Всього",
+        en: "Total",
+    },
+    vergi: {
+        tr: "Vergi",
+        uk: "Податок",
+        en: "Tax",
+    },
+    genelToplam: {
+        tr: "Genel Toplam",
+        uk: "Загальна сума",
+        en: "Grand Total",
     },
 };
 
@@ -170,7 +270,9 @@ const Invoice = () => {
         data.Orders.forEach(value => {
             const pr_id = value.id
 
-            let x_d = {}
+            let x_d = {
+                note: value.orderNote
+            }
 
             data.Extralar
                 .filter(x_f => x_f.orderId === pr_id)
@@ -182,7 +284,7 @@ const Invoice = () => {
                         price: Number(x_m.productPrice),
                         totalPrice: Number(value.stock) * Number(x_m.productPrice),
                         id: x_m.productId,
-                        name: x_m.productName
+                        name: x_m.productName,
                     }
                 })
 
@@ -256,12 +358,16 @@ const Invoice = () => {
 
     const handlePrint = useReactToPrint({
         content: () => printRef.current,
-        pageStyle: `margin: 30mm 45mm 30mm 45mm`,
+        pageStyle: `
+        @page {
+            margin: 5%;
+        }
+        `,
+
     })
 
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat("uk-UA", {
-            style: "currency",
             currency: "UAH",
             minimumFractionDigits: 2,
         }).format(amount);
@@ -289,17 +395,19 @@ const Invoice = () => {
     const details = filterDataByOrderId()
     const total = calculateTotals(16, details.products)
 
-    return <div className="flex flex-col w-fit h-fit gap-6">
-        <button onClick={handlePrint}>
+    return <div className="flex flex-col w-fit h-fit gap-6 relative">
+        <button
+            className="px-8 py-2 fixed top-8 right-8 bg-green-500 text-white font-bold rounded-md hover:opacity-75 transition-all duration-200 active:bg-green-400"
+            onClick={handlePrint}>
             Print Invoice
         </button>
 
         <div ref={printRef} className="a4">
 
-                <Image src={Logo} alt="" height={75} className="w-fit px-6 bg-white mr-auto"/>
-
             {/* Header */}
             <header className="flex items-start justify-end mb-6">
+                <Image src={Logo} alt="" className="mr-auto"/>
+
                 <div className="flex flex-col gap-1">
                     <span className="text-[#363B46] text-[19.125pt] font-bold">Yusuf</span>
                     <span className="text-[13.5pt] text-[#647680] font-bold">552 448 3327</span>
@@ -308,51 +416,69 @@ const Invoice = () => {
                 </div>
             </header>
 
-            <div className="h-[50px] w-full bg-[#FFC90B] my-5 flex items-center justify-around">
 
-                <div className="flex items-center justify-between gap-2">
-                    <span className="text-[10pt] text-[#363B46] font-bold">Teklif no:</span>
-                    <span className="text-[10pt] text-[#000] font-bold">{details.order_no}</span>
-                </div>
+            <table className="w-full break-inside-auto">
 
-                <div className="flex items-center justify-between gap-2">
-                    <span className="text-[10pt] text-[#363B46] font-bold">Invoice#</span>
-                    <span className="text-[10pt] text-[#000] font-bold">45489</span>
-                </div>
+                <thead className="h-[50px] w-full bg-[#FFC90B]">
+                <tr>
+                    <th>
+                         <span
+                             className="text-[10pt] text-[#363B46] font-bold">{langs.invoice[selectedLang]}#</span>
+                    </th>
+                    <th>
+                        <span className="text-[10pt] text-[#000] font-bold">45489</span>
+                    </th>
+                    <th>
+                        <div className="flex items-center justify-around">
+                            <div className="flex items-center justify-between gap-2">
+                                <span
+                                    className="text-[10pt] text-[#363B46] font-bold">{langs.teklifNo[selectedLang]}:</span>
+                                <span className="text-[10pt] text-[#000] font-bold">{details.order_no}</span>
+                            </div>
 
-                <div className="flex items-center justify-between gap-2">
-                    <span className="text-[10pt] text-[#363B46] font-bold">Date:</span>
-                    <span
-                        className="text-[10pt] text-[#000] font-bold">12 / 04 / 2023</span>
-                </div>
-            </div>
+                            <div className="flex items-center justify-between gap-2">
+                                <span
+                                    className="text-[10pt] text-[#363B46] font-bold">{langs.date[selectedLang]}:</span>
+                                <span
+                                    className="text-[10pt] text-[#000] font-bold">12 / 04 / 2023</span>
+                            </div>
+                        </div>
+                    </th>
+                    <th/>
+                    <th/>
+                    <th>
+                    </th>
+                </tr>
+                </thead>
 
-            <table className="w-full">
                 <thead className="bg-[#363B46] [&_tr_th]:text-center [&_tr_th]: [&_tr_th]:text-white">
                 <tr>
-                    <th className="w-fit !font-serif">{langs.order[selectedLang]}</th>
-                    <th className="w-min !font-serif">{langs.image[selectedLang]}</th>
+                    <th className="px-1 w-fit !font-serif">{langs.order[selectedLang]}</th>
+                    <th className="px-1 w-min !font-serif">{langs.image[selectedLang]}</th>
                     <th className="max-h-[105px] !font-serif">{langs.productFeatures[selectedLang]}</th>
-                    <th className="w-fit !font-serif">{langs.price[selectedLang]}</th>
-                    <th className="w-fit !font-serif">{langs.quantity[selectedLang]}</th>
-                    <th className="w-fit !font-serif">{langs.total[selectedLang]}</th>
+                    <th className="!w-fit !font-serif">{langs.price[selectedLang]}</th>
+                    <th className="!w-fit !font-serif">{langs.quantity[selectedLang]}</th>
+                    <th className="!w-fit !font-serif">{langs.total[selectedLang]}</th>
                 </tr>
                 </thead>
                 <tbody className="[&_tr_td]:p-[6px] [&_tr_td]:text-center [&_tr_th]:text-[#363B46]">
                 {details.products.map((product, idx) => (
-                    <tr key={idx} className="even:bg-[#F2F2F2] bg-white">
+                    <tr key={idx} className="even:bg-[#F2F2F2] bg-white break-inside-avoid">
                         <td className="border-l-2 border-r-2 border-b-2 border-dashed border-[#363B46] text-[13.5pt] text-[#363B46] font-bold">{idx + 1}</td>
                         <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">
-                            {product?.image ? <Image src={product?.image} height={75} alt="" className="object-contain m-auto"/> : <div>Not Found</div>}
+                            {product?.image ?
+                                <Image src={product?.image} height={75} alt="" className="object-contain m-auto"/> :
+                                <div>Not Found</div>}
                         </td>
-                        <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">
-                            <div className="flex flex-wrap gap-2">
+                        <td className="border-r-2 border-b-2 border-dashed border-[#363B46] overflow-hidden">
+                            <div className="!max-h-[99px] overflow-hidden gap-2 flex flex-wrap">
                                 <span className="px-2.5 py-1 bg-green-600 text-[9pt] text-white rounded-full w-fit">
                                 {product.name}
                             </span>
 
 
-                                <span className="px-2.5 py-1 bg-yellow-500 text-[9pt] text-white rounded-full w-fit">
+                                <span
+                                    className="px-2.5 py-1 bg-yellow-500 text-[9pt] text-white rounded-full w-fit">
                                 {product.info}
                             </span>
 
@@ -360,24 +486,63 @@ const Invoice = () => {
                                     className="px-2.5 py-1 bg-blue-500  text-[10pt] text-white rounded-full w-fit">
                                 {product.id}
                             </span>
+                                <div
+                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
+                                    <span>xxx</span>
+                                </div>
+
+                                <div
+                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
+                                    <span>xxx</span>
+                                </div>
+                                <div
+                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
+                                    <span>xxx</span>
+                                </div>
+                                <div
+                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
+                                    <span>xxx</span>
+                                </div>
+                                <div
+                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
+                                    <span>xxx</span>
+                                </div>
+                                <div
+                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
+                                    <span>xxx</span>
+                                </div>
+                                <div
+                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
+                                    <span>xxx</span>
+                                </div>
+                                <div
+                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
+                                    <span>xxx</span>
+                                </div>
+                                <div
+                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
+                                    <span>xxx</span>
+                                </div>
+
 
                                 {
                                     product.extras.map(feature => <div
                                         className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
-                                        <span>{feature.name}</span>
-                                        <span>:</span>
                                         <span>{feature.value}</span>
                                     </div>)
                                 }
-                                <div
-                                    className="px-2 py-1 bg-slate-600 flex gap-1 [&_span]:text-white rounded-md [&_span]:text-[10pt] items-center w-full">
-                                    <span>açıklama yazısı</span>
-                                </div>
+
+                                {
+                                    product.note && product.note !== "" && <div
+                                        className="px-2 py-1 bg-slate-600 flex gap-1 [&_span]:text-white rounded-md [&_span]:text-[10pt] items-center w-full">
+                                        <span>{product.note}</span>
+                                    </div>
+                                }
                             </div>
                         </td>
-                        <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">{formatCurrency(product.price)}</td>
-                        <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">{product.quantity}</td>
-                        <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">{formatCurrency((product.quantity * product.price))}</td>
+                        <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">{formatCurrency(product.price)} грн</td>
+                        <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">{product.quantity} грн</td>
+                        <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">{formatCurrency((product.quantity * product.price))} грн</td>
                     </tr>
                 ))}
                 </tbody>
@@ -385,27 +550,28 @@ const Invoice = () => {
 
             {/* Footer */}
             <footer className="flex justify-between">
-                <div className="mt-[24px] flex flex-col">
-                    <span className="text-[#363B46] text-[15pt] font-bold">Firma Bilgileri</span>
+                <div className="mt-[24px] flex flex-col h-full">
+                    <span className="text-[#363B46] text-[15pt] font-bold">{langs.firmaBilgileri[selectedLang]}</span>
                     <span className="text-[10pt] text-[#647680] font-bold">Фізична особа-підприємець Дурал Онур код за ЄДРПОУ 2896224270 </span>
                     <span className="text-[10pt] text-[#647680] font-bold">UA043052990000026008040126820, Банк АТ КБ "ПРИВАТБАНК", МФО 305299 </span>
                     <span className="text-[10pt] text-[#647680] font-bold">Україна, 76006, Івано-Франківська обл., м.Івано-Франківськ, вул.Вовчинецька, будинок № 200, кв.7</span>
                 </div>
 
                 <div className="flex flex-col items-end gap-2 mt-[24px]">
-                    <div className="flex items-center gap-6 w-[300px]">
-                        <span className="text-[#363B46] text-[15pt] font-bold">Toplam :</span>
-                        <p className="ml-auto text-[#363B46] text-[12pt] font-bold">{total.total}</p>
+                    <div className="flex items-center gap-6 px-1.5 w-[300px]">
+                        <span className="text-[#363B46] text-[13pt] font-bold">{langs.total[selectedLang]} :</span>
+                        <p className="ml-auto text-[#363B46] text-[12pt] font-bold">{total.total} грн</p>
                     </div>
 
-                    <div className="flex items-center gap-6 w-[300px]">
-                        <span className="text-[#363B46] text-[15pt] font-bold">Vergi :</span>
-                        <p className="ml-auto text-[#363B46] text-[12pt] font-bold">{total.tax}</p>
+                    <div className="flex items-center gap-6 px-1.5 w-[300px]">
+                        <span className="text-[#363B46] text-[13pt] font-bold">{langs.vergi[selectedLang]} :</span>
+                        <p className="ml-auto text-[#363B46] text-[12pt] font-bold">{total.tax} грн</p>
                     </div>
 
                     <div className="flex items-center gap-6 w-[300px] bg-[#FFC90B] p-1.5 rounded-sm">
-                        <span className="text-[#363B46] text-[15pt] font-bold">Genel Toplam :</span>
-                        <p className="ml-auto text-[#363B46] text-[12pt] font-bold">{total.grandTotal}</p>
+                        <span
+                            className="text-[#363B46] text-[13pt] font-bold">{langs.genelToplam[selectedLang]} :</span>
+                        <p className="ml-auto text-[#363B46] text-[12pt] font-bold">{total.grandTotal} грн</p>
                     </div>
                 </div>
             </footer>
