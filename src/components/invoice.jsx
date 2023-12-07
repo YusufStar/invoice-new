@@ -5,184 +5,6 @@ import {useReactToPrint} from "react-to-print";
 import Logo from "@/assets/Logo.png"
 import Image from "next/image";
 
-const data = {
-    "orderCode": "211813RAHMMS412HG",
-    "Orders": [
-        {
-            "id": "656e17e5da80e5d9003bccd0",
-            "customerId": "656e17e5da80e5d9003bcccf",
-            "personelId": "656e17e5da80e5d9003bccce",
-            "orderCode": "211813RAHMMS412HG",
-            "invalidDate": "2023-12-14T18:18:13.373Z",
-            "stock": 5,
-            "orderNote": "5 tane aslan koltuk eklendi",
-            "productId": "65437ceee29190a1e9d61e75",
-            "createdAt": "2023-12-04T18:18:13.575Z",
-            "updatedAt": "2023-12-04T18:18:13.575Z"
-        },
-        {
-            "id": "656e17e5da80e5d9003bccd0",
-            "customerId": "656e17e5da80e5d9003bcccf",
-            "personelId": "656e17e5da80e5d9003bccce",
-            "orderCode": "211813RAHMMS412HG",
-            "invalidDate": "2023-12-14T18:18:13.373Z",
-            "stock": 5,
-            "orderNote": "5 tane aslan koltuk eklendi",
-            "productId": "65437ceee29190a1e9d61e75",
-            "createdAt": "2023-12-04T18:18:13.575Z",
-            "updatedAt": "2023-12-04T18:18:13.575Z"
-        },
-        {
-            "id": "656e17e5da80e5d9003bccd0",
-            "customerId": "656e17e5da80e5d9003bcccf",
-            "personelId": "656e17e5da80e5d9003bccce",
-            "orderCode": "211813RAHMMS412HG",
-            "invalidDate": "2023-12-14T18:18:13.373Z",
-            "stock": 5,
-            "orderNote": "5 tane aslan koltuk eklendi",
-            "productId": "65437ceee29190a1e9d61e75",
-            "createdAt": "2023-12-04T18:18:13.575Z",
-            "updatedAt": "2023-12-04T18:18:13.575Z"
-        }, {
-            "id": "656e17e5da80e5d9003bccd0",
-            "customerId": "656e17e5da80e5d9003bcccf",
-            "personelId": "656e17e5da80e5d9003bccce",
-            "orderCode": "211813RAHMMS412HG",
-            "invalidDate": "2023-12-14T18:18:13.373Z",
-            "stock": 5,
-            "orderNote": "5 tane aslan koltuk eklendi",
-            "productId": "65437ceee29190a1e9d61e75",
-            "createdAt": "2023-12-04T18:18:13.575Z",
-            "updatedAt": "2023-12-04T18:18:13.575Z"
-        }, {
-            "id": "656e17e5da80e5d9003bccd0",
-            "customerId": "656e17e5da80e5d9003bcccf",
-            "personelId": "656e17e5da80e5d9003bccce",
-            "orderCode": "211813RAHMMS412HG",
-            "invalidDate": "2023-12-14T18:18:13.373Z",
-            "stock": 5,
-            "orderNote": "5 tane aslan koltuk eklendi",
-            "productId": "65437ceee29190a1e9d61e75",
-            "createdAt": "2023-12-04T18:18:13.575Z",
-            "updatedAt": "2023-12-04T18:18:13.575Z"
-        },
-        {
-            "id": "656e17e5da80e5d9003bccd0",
-            "customerId": "656e17e5da80e5d9003bcccf",
-            "personelId": "656e17e5da80e5d9003bccce",
-            "orderCode": "211813RAHMMS412HG",
-            "invalidDate": "2023-12-14T18:18:13.373Z",
-            "stock": 5,
-            "orderNote": "5 tane aslan koltuk eklendi",
-            "productId": "65437ceee29190a1e9d61e75",
-            "createdAt": "2023-12-04T18:18:13.575Z",
-            "updatedAt": "2023-12-04T18:18:13.575Z"
-        }
-
-
-    ],
-    "Renkler": [
-        {
-            "id": "65351ec560f49da759f3e100",
-            "colourType": "1",
-            "colourDescription": "",
-            "translateEnabled": false,
-            "colourPickerEnabled": false,
-            "colourHex": "rgb(122, 23, 28)",
-            "colourTypeTurkish": "",
-            "colourTypeUkrainian": "",
-            "colourTypeEnglish": "",
-            "colourDescriptionTurkish": "",
-            "colourDescriptionUkrainian": "",
-            "colourDescriptionEnglish": "",
-            "createdAt": "2023-10-22T13:08:21.277Z",
-            "updatedAt": "2023-10-22T13:08:21.277Z",
-            "orderId": "656e17e5da80e5d9003bccd0"
-        }
-    ],
-    "Kumaşlar": [
-        {
-            "id": "6535202160f49da759f3e102",
-            "fabricType": "a1",
-            "fabricDescription": "a1",
-            "fabricSwatch": "a1",
-            "image": "",
-            "translateEnabled": false,
-            "addSwatchEnabled": true,
-            "fabricTypeTurkish": "",
-            "fabricTypeUkrainian": "",
-            "fabricTypeEnglish": "",
-            "fabricDescriptionTurkish": "",
-            "fabricDescriptionUkrainian": "",
-            "fabricDescriptionEnglish": "",
-            "fabricSwatchTurkish": "",
-            "fabricSwatchUkrainian": "",
-            "fabricSwatchEnglish": "",
-            "createdAt": "2023-10-22T13:14:09.990Z",
-            "updatedAt": "2023-10-22T13:14:09.990Z",
-            "orderId": "656e17e5da80e5d9003bccd0"
-        }
-    ],
-    "Ölçüler": [
-        {
-            "id": "6530c77af6f7eab66c849a03",
-            "firstValue": "1",
-            "secondValue": "",
-            "unit": "cm",
-            "oneRangeEnabled": false,
-            "twoRangeEnabled": true,
-            "manuelDefined": false,
-            "translateEnabled": null,
-            "turkish": "",
-            "ukrainian": "",
-            "english": "",
-            "createdAt": "2023-10-19T06:06:50.418Z",
-            "updatedAt": "2023-10-19T06:06:50.418Z",
-            "orderId": "656e17e5da80e5d9003bccd0"
-        }
-    ],
-    "Metaller": [
-        {
-            "id": "6535205c60f49da759f3e104",
-            "metalType": "a1",
-            "metalDescription": "",
-            "image": "",
-            "translateEnabled": false,
-            "metalTypeTurkish": "",
-            "metalTypeUkrainian": "",
-            "metalTypeEnglish": "",
-            "metalDescriptionTurkish": "",
-            "metalDescriptionUkrainian": "",
-            "metalDescriptionEnglish": "",
-            "createdAt": "2023-10-22T13:15:08.046Z",
-            "updatedAt": "2023-10-22T13:15:08.046Z",
-            "orderId": "656e17e5da80e5d9003bccd0"
-        }
-    ],
-    "Extralar": [
-        {
-            "id": "65437cf0e29190a1e9d61e8a",
-            "index": 0,
-            "feature": "Extra",
-            "featureId": "ekstra",
-            "targetValue": "standard",
-            "checked": true,
-            "value": null,
-            "imageValue": null,
-            "extraValue": "ekstra 1",
-            "productId": "65437ceee29190a1e9d61e75",
-            "productName": "Aslan Koltuk",
-            "productType": "koltuk",
-            "productPrice": "1500",
-            "selectedCategoryKey": "furniture",
-            "selectedCategoryValues": "Mobilya",
-            "createdAt": "2023-11-02T10:41:50.721Z",
-            "updatedAt": "2023-11-02T10:41:50.721Z",
-            "orderId": "656e17e5da80e5d9003bccd0"
-        }
-    ]
-}
-
 const langs = {
     order: {
         tr: "SIRA",
@@ -258,39 +80,71 @@ const langs = {
 
 const selectedLang = "uk"
 
-const Invoice = () => {
+const Invoice = ({ data, lang }) => {
     const printRef = useRef(null)
 
     function filterDataByOrderId() {
+        {/* Datayı başlangıç için hazırlıyoruz müşteri verileri */}
         const res = {
             order_no: data.orderCode,
+            musteri: {
+                name: data.Müşteri[0].name + " " + data.Müşteri[0].surname,
+                phone: data.Müşteri[0].phoneNumber,
+                adress: data.Müşteri[0].address,
+                email: data.Müşteri[0].mailAddress
+            },
             products: []
         }
 
+        {/* Data içindeki Oders ların hepsinin içinde geziyoruz */}
         data.Orders.forEach(value => {
-            const pr_id = value.id
+            {/* Orderımızın id'si */}
+            const or_id = value.id
 
+            {/* Product'ın id si */}
+            const pr_id = value.productId
+
+            {/* ürün datası için başlangıç verisi (ürün notu) */}
             let x_d = {
                 note: value.orderNote
             }
 
-            data.Extralar
-                .filter(x_f => x_f.orderId === pr_id)
+            {/* tüm ürünler'de filter ile product id'miz ve ürün id si aynı olanların içerisinde gezip info, quantity gibi ürün bilgilerini x_d yani ürün datasına gönderiyoruz */}
+            data.Ürünler
+                .filter(x_f => x_f.id === pr_id)
                 .forEach(x_m => {
+                    console.log(x_m)
                     x_d = {
                         ...x_d,
                         info: x_m.productType,
                         quantity: Number(value.stock),
-                        price: Number(x_m.productPrice),
-                        totalPrice: Number(value.stock) * Number(x_m.productPrice),
-                        id: x_m.productId,
+                        price: Number(value.productPrice) + Number(value.productFeaturePrice),
+                        totalPrice: (Number(value.productPrice) + Number(value.productFeaturePrice)) * Number(value.stock),
+                        id: x_m.id,
                         name: x_m.productName,
                     }
                 })
 
+            {/* Extralar içerisinde gezip orderId product id ile eşit olanların içerisinde gezip extras yani ürün özelliklerine bu datayı gödneriyoruz */}
+            data.Extralar
+                ?.filter(x_f => x_f.orderId === pr_id)
+                ?.forEach(x_k => {
+                    x_d = {
+                        ...x_d,
+                        extras: x_d?.extras ? [...x_d.extras, {
+                            name: "Extra",
+                            value: x_k.extravalue
+                        }] : [{
+                            name: "Extra",
+                            value: x_k.extravalue
+                        }]
+                    }
+                })
+
+            {/* Kunaşlar içerisinde gezip orderId - order id ile eşit olanların içerisinde gezip extras yani ürün özelliklerine bu datayı gödneriyoruz */}
             data.Kumaşlar
-                .filter(x_f => x_f.orderId === pr_id)
-                .forEach(x_k => {
+                ?.filter(x_f => x_f.orderId === or_id)
+                ?.forEach(x_k => {
                     x_d = {
                         ...x_d,
                         extras: x_d?.extras ? [...x_d.extras, {
@@ -303,9 +157,10 @@ const Invoice = () => {
                     }
                 })
 
+            {/* Metaller içerisinde gezip orderId - order id ile eşit olanların içerisinde gezip extras yani ürün özelliklerine bu datayı gödneriyoruz */}
             data.Metaller
-                .filter(x_f => x_f.orderId === pr_id)
-                .forEach(x_m => {
+                ?.filter(x_f => x_f.orderId === or_id)
+                ?.forEach(x_m => {
                     x_d = {
                         ...x_d,
                         extras: x_d?.extras ? [...x_d.extras, {
@@ -318,8 +173,9 @@ const Invoice = () => {
                     }
                 })
 
+            {/* Renkler içerisinde gezip orderId - order id ile eşit olanların içerisinde gezip extras yani ürün özelliklerine bu datayı gödneriyoruz */}
             data.Renkler
-                .filter(x_f => x_f.orderId === pr_id)
+                .filter(x_f => x_f.orderId === or_id)
                 .forEach(x_m => {
                     x_d = {
                         ...x_d,
@@ -333,8 +189,9 @@ const Invoice = () => {
                     }
                 })
 
+            {/* Ölçüler içerisinde gezip orderId - order id ile eşit olanların içerisinde gezip extras yani ürün özelliklerine bu datayı gödneriyoruz */}
             data.Ölçüler
-                .filter(x_f => x_f.orderId === pr_id)
+                .filter(x_f => x_f.orderId === or_id)
                 .forEach(x_m => {
                     const formated = x_m.firstValue + x_m.unit + x_m.secondValue
 
@@ -356,6 +213,7 @@ const Invoice = () => {
         return res;
     }
 
+    {/* Sayfanın print özelliğini tetikleyip yazdılacak divin referansını veriyorum content'de, ve pageStyle ile kenarlardan margin veriyoruz */}
     const handlePrint = useReactToPrint({
         content: () => printRef.current,
         pageStyle: `
@@ -366,6 +224,7 @@ const Invoice = () => {
 
     })
 
+    {/* ücreti yani fiyatı normalize etme işlemi. */}
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat("uk-UA", {
             currency: "UAH",
@@ -373,6 +232,10 @@ const Invoice = () => {
         }).format(amount);
     };
 
+    {/* tüm products içinde gezip ürünlerin fiyatlarını hesaplayıp kdv ekliyoruz ve return ediyoruz
+     output: total = kdv hariç,
+     tax = kdv,
+     grandTotal = kdv dahil*/}
     const calculateTotals = (taxRate, products) => {
         let total = 0;
         let tax = 0;
@@ -409,10 +272,10 @@ const Invoice = () => {
                 <Image src={Logo} alt="" className="mr-auto"/>
 
                 <div className="flex flex-col gap-1">
-                    <span className="text-[#363B46] text-[19.125pt] font-bold">Yusuf</span>
-                    <span className="text-[13.5pt] text-[#647680] font-bold">552 448 3327</span>
-                    <span className="text-[13.5pt] text-[#647680] font-bold">yyilidz518@gmail.com</span>
-                    <span className="text-[13.5pt] text-[#647680] font-bold">Siteler mah. 1346 sokak</span>
+                    <span className="text-[#363B46] text-[19.125pt] font-bold">{details.musteri.name}</span>
+                    <span className="text-[13.5pt] text-[#647680] font-bold">{details.musteri.phone}</span>
+                    <span className="text-[13.5pt] text-[#647680] font-bold">{details.musteri.email}</span>
+                    <span className="text-[13.5pt] text-[#647680] font-bold">{details.musteri.adress}</span>
                 </div>
             </header>
 
@@ -462,7 +325,7 @@ const Invoice = () => {
                 </tr>
                 </thead>
                 <tbody className="[&_tr_td]:p-[6px] [&_tr_td]:text-center [&_tr_th]:text-[#363B46]">
-                {details.products.map((product, idx) => (
+                {details?.products?.map((product, idx) => (
                     <tr key={idx} className="even:bg-[#F2F2F2] bg-white break-inside-avoid">
                         <td className="border-l-2 border-r-2 border-b-2 border-dashed border-[#363B46] text-[13.5pt] text-[#363B46] font-bold">{idx + 1}</td>
                         <td className="border-r-2 border-b-2 border-dashed border-[#363B46]">
@@ -482,51 +345,8 @@ const Invoice = () => {
                                 {product.info}
                             </span>
 
-                                <span
-                                    className="px-2.5 py-1 bg-blue-500  text-[10pt] text-white rounded-full w-fit">
-                                {product.id}
-                            </span>
-                                <div
-                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
-                                    <span>xxx</span>
-                                </div>
-
-                                <div
-                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
-                                    <span>xxx</span>
-                                </div>
-                                <div
-                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
-                                    <span>xxx</span>
-                                </div>
-                                <div
-                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
-                                    <span>xxx</span>
-                                </div>
-                                <div
-                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
-                                    <span>xxx</span>
-                                </div>
-                                <div
-                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
-                                    <span>xxx</span>
-                                </div>
-                                <div
-                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
-                                    <span>xxx</span>
-                                </div>
-                                <div
-                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
-                                    <span>xxx</span>
-                                </div>
-                                <div
-                                    className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
-                                    <span>xxx</span>
-                                </div>
-
-
                                 {
-                                    product.extras.map(feature => <div
+                                    product?.extras?.map(feature => <div
                                         className="px-2 py-1 bg-[#363B46] flex gap-1 [&_span]:text-white rounded-full [&_span]:text-[10pt] items-center">
                                         <span>{feature.value}</span>
                                     </div>)
