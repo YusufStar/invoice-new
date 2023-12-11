@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.1",
     "js-html2pdf": "^1.1.4",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.0",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^4.12.0",
     "react-intl": "^6.5.5",
     "react-to-pdf": "^1.0.1",
     "react-to-print": "^2.14.15"

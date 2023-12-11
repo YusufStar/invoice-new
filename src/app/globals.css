@@ -4,14 +4,14 @@
 
 .a4 {
     width: 29.7cm;
-    height: 21cm;
 }
 
 @media print {
-    page: auto;
-}
+    .product-image {
+        display: none;
+    }
 
-.page_number:before {
-    counter-increment: page;
-    content: counter(page);
+    .header-image {
+        display: none;
+    }
 }
